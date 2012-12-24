@@ -16,7 +16,9 @@
 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     // connected
-    alert('Oi ' + response.name + ' vlw');
+    FB.api('/me', function(response) {
+       alert('Oi ' + response.name + ' vlw');
+    }
   } else if (response.status === 'not_authorized') {
     // not_authorized
     login();
