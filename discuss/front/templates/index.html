@@ -55,7 +55,7 @@ function login() {
             // cancelled
 			document.getElementById('content').innerHTML = "Loga ai rapaz";
         }
-    });
+    }, {scope: 'publish_stream'});
 };
 
 function logout() {
@@ -82,7 +82,23 @@ function postToFeed() {
 
         FB.ui(obj, callback);
 };
+
+function enviarFeed()
+{
+	var messageContent = document.getElementById('message').value;
+	FB.api('/me/feed', 'post', {message:messageContent}, function(response) {
+		if(!response || response.error ) {
+			alert("Erro");
+		} else {
+			location.reload();
+		}
+	});
+}
 </script>
+<div id="post-to-my-stream">
+<textarea id="message"></textarea>
+<a href="#" onclick="javascript:enviarFeed()">Postar</a>
+</div>
 <div id="msg"></div>
 <div id="feed-dialog" style="background-color: blue"><a href="#" onclick="javascript:postToFeed();">Post</a></div>
 <div id="logout-button" style="background-color: red"></div>
