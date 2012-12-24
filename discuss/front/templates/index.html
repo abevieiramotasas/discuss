@@ -18,9 +18,9 @@ FB.getLoginStatus(function(response) {
     // connected
     FB.api('/me/friends', function(response) {
 	var amizades = "";
-	for(var amizade in response.data)
+	for(var i = 0; i < response.data.length; i++)
 	{
-		amizades += amizade['name'] + "\n";
+		amizades += response.data[i].name + "</ br>";
 	}
 	var content = document.getElementById('content');
 	content.innerHTML = amizades;
