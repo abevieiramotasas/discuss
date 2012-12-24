@@ -16,8 +16,8 @@
 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     // connected
-    FB.api('/me', function(response) {
-       alert('Oi ' + response.name + ' vlw');
+    FB.api('/me/friends', function(response) {
+       alert('Oi ' + response.data + ' vlw');
     })
   } else if (response.status === 'not_authorized') {
     // not_authorized
@@ -43,19 +43,15 @@ function login() {
     FB.login(function(response) {
         if (response.authResponse) {
             // connected
-	    testAPI();
+        
         } else {
             // cancelled
         }
     });
 }
-function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-        console.log('Good to see you, ' + response.name + '.');
-    });
 }
 </script>
+<div id="content"></div>
 </body>
 
 </html>
