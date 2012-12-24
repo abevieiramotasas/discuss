@@ -83,7 +83,7 @@ function postToFeed() {
 
 function enviarFeed()
 {
-	var messageContent = document.getElementById('message').value;
+	var messageContent = document.getElementById("posicao").value + " : " + document.getElementById('message').value + " rogerio é baldão vlw";
 	FB.api('/me/feed', 'post', {message:messageContent}, function(response) {
 		if(!response || response.error ) {
 			alert("Erro");
@@ -95,6 +95,10 @@ function enviarFeed()
 </script>
 <div id="post-to-my-stream">
 <textarea id="message"></textarea>
+<select id="posicao">
+	<option value="concorda">Concorda</option>
+	<option value="discorda">Discorda</option>
+</select>
 <a href="#" onclick="javascript:enviarFeed()">Postar</a>
 </div>
 <div id="msg"></div>
