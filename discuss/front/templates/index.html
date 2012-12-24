@@ -63,7 +63,28 @@ function logout() {
 		alert("Deslogado, rapaz");
 	});
 };
+function postToFeed() {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          redirect_uri: 'http://warm-anchorage-2615.herokuapp.com/',
+          link: 'http://warm-anchorage-2615.herokuapp.com/',
+          picture: 'http://fbrell.com/f8.jpg',
+          name: 'Facebook Dialog',
+          caption: 'Reference Documentation',
+          description: 'Using Dialogs to interact with users.'
+        };
+
+        function callback(response) {
+          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+        }
+
+        FB.ui(obj, callback);
+};
 </script>
+<div id="msg"></div>
+<div id="feed-dialog" style="background-color: blue"><a href="#" onclick="javascript:postToFeed();">Post</a></div>
 <div id="logout-button" style="background-color: red"></div>
 <div id="content"></div>
 </body>
