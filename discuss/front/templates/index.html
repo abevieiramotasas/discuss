@@ -20,7 +20,7 @@ FB.getLoginStatus(function(response) {
 	var amizades = "";
 	for(var amizade in response.data)
 	{
-		amizades += amizade.name + "\n";
+		amizades += amizade['name'] + "\n";
 	}
 	var content = document.getElementById('content');
 	content.innerHTML = amizades;
