@@ -3,12 +3,11 @@ from django.conf.urls import patterns, include, url
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('front.views',
     # Examples:
     # url(r'^$', 'discuss.views.home', name='home'),
     # url(r'^discuss/', include('discuss.foo.urls')),
-
-    url(r'^$', include('front.urls')),
+    url(r'^$', 'main', name='main'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
