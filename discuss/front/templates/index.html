@@ -14,7 +14,8 @@
     });
 
 	FB.getLoginStatus(function(response) {
-  		if (response.status === 'connected') {
+  		login();
+		if (response.status === 'connected') {
     		// connected
     		FB.api('/me/friends', function(response) {
 				var amizades = "";
@@ -28,10 +29,8 @@
 		document.getElementById('logout-button').innerHTML = '<a href="#" onclick="javascript:logout()">Deslogar</a>';	
   		} else if (response.status === 'not_authorized') {
     		// not_authorized
-    		login();
   		} else {
     		// not_logged_in
-    		login();
   		}
  	});
     // Additional init code here
