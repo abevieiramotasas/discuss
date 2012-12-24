@@ -13,26 +13,26 @@
       xfbml      : true  // parse XFBML
     });
 
-FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    // connected
-    FB.api('/me/friends', function(response) {
-	var amizades = "";
-	for(var i = 0; i < response.data.length; i++)
-	{
-		amizades += '<a href="http://www.facebook.com/'+response.data[i].id+'">'+response.data[i].name + "</a><br />";
-	}
-	var content = document.getElementById('content');
-	content.innerHTML = amizades;
-	})
-  } else if (response.status === 'not_authorized') {
-    // not_authorized
-    login();
-  } else {
-    // not_logged_in
-    login();
-  }
- });
+	FB.getLoginStatus(function(response) {
+  		if (response.status === 'connected') {
+    		// connected
+    		FB.api('/me/friends', function(response) {
+				var amizades = "";
+				for(var i = 0; i < response.data.length; i++)
+				{
+					amizades += '<a href="http://www.facebook.com/'+response.data[i].id+'">'+response.data[i].name + "</a><br />";
+				}
+				var content = document.getElementById('content');
+				content.innerHTML = amizades;
+			});
+  		} else if (response.status === 'not_authorized') {
+    		// not_authorized
+    		login();
+  		} else {
+    		// not_logged_in
+    		login();
+  		}
+ 	});
     // Additional init code here
 
   };
@@ -49,9 +49,10 @@ function login() {
     FB.login(function(response) {
         if (response.authResponse) {
             // connected
-        
+        	location.reload();
         } else {
             // cancelled
+			document.getElementById('content').innerHTML = "Loga ai rapaz";
         }
     });
 };
