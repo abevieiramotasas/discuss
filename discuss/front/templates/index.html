@@ -17,8 +17,10 @@ FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     // connected
     FB.api('/me/friends', function(response) {
-       alert('Oi ' + response.data + ' vlw');
-    })
+    	var amizades = response.data.join('\n');
+	var content = document.getElementById('content');
+	content.innerHTML = amizades;
+	})
   } else if (response.status === 'not_authorized') {
     // not_authorized
     login();
