@@ -17,7 +17,11 @@ FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     // connected
     FB.api('/me/friends', function(response) {
-    	var amizades = response.data.join('\n');
+	var amizades = "";
+	for(var amizade in response.data)
+	{
+		amizades += amizade.name + "\n";
+	}
 	var content = document.getElementById('content');
 	content.innerHTML = amizades;
 	})
