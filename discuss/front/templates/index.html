@@ -49,10 +49,9 @@ function login() {
     FB.login(function(response) {
         if (response.authResponse) {
             // connected
-        	location.reload();
         } else {
             // cancelled
-			document.getElementById('content').innerHTML = "Loga ai rapaz";
+		document.getElementById('content').innerHTML = "Loga ai rapaz";
         }
     }, {scope: 'publish_stream'});
 };
