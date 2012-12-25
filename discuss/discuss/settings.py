@@ -1,6 +1,6 @@
 FACEBOOK_APP_ID = "183408515138929"
 FACEBOOK_APP_SECRET = "5a6927af18c9c3df657f873bcb1b3084"
-FACEBOOK_MY_URL = "http://warm-anchorage-2615.herokuapp.com/"
+FACEBOOK_MY_URL = "//warm-anchorage-2615.herokuapp.com"
 
 import dj_database_url
 
