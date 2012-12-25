@@ -8,6 +8,7 @@ urlpatterns = patterns('front.views',
     # url(r'^$', 'discuss.views.home', name='home'),
     # url(r'^discuss/', include('discuss.foo.urls')),
     url(r'^$', 'main', name='main'),
+    url(r'^server_side$', 'server_side', name='server_side'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
