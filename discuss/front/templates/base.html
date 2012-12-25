@@ -2,9 +2,11 @@
 
 <body>
 {% if dialog_url %}
+{% autoescape off %}
 <script>
    top.location.href= "{{ dialog_url }}";
 </script>
+{% endautoescape %}
 {% endif %}
 </body>
 
