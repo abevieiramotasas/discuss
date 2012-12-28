@@ -1,0 +1,16 @@
+
+<style>
+.azul {
+   background-color: blue;
+}
+
+.vermelho {
+   background-color: red;
+}
+</style>
+
+{% for valor in valores %}
+   <div class="{% cycle 'azul' 'vermelho' as rowvalue %}">
+      {{ valor }} usando a cor {{ rowvalue }}
+   </div>
+{% endfor %}

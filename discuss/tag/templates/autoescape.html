@@ -1,0 +1,17 @@
+
+
+Com autoescape<br />
+{% autoescape on %}
+	{{ html }}
+{% endautoescape %}
+<br />
+
+
+Sem autoescape<br />
+{% autoescape off %}
+	{{ html }}
+{% endautoescape %}
+<br />
+
+Default<br />
+{{ html }}
